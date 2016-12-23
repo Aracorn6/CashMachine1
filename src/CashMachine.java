@@ -7,18 +7,18 @@ import java.util.ArrayList;
  * Created by aracorn on 16.12.16.
  */
 public class CashMachine {
-    Bank bank = new Bank();
+    ConnectCardsInfo connect = new ConnectCardsInfo();
     BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
     public void start() throws IOException {
-        ArrayList<BankCard> cardsInfo = bank.cardsData();
+        ArrayList<BankCard> cardsInfo = connect.cardsInfoDatabase();
         System.out.println("======================");
         System.out.println("Waiting.");
         System.out.println("INSERT CARD NUMBER");
-        long number = Long.parseLong(rd.readLine());
+        String number = rd.readLine();
             int count=0;
             for (int i=0; i<cardsInfo.size(); i++) {
-                long cardNumber = cardsInfo.get(i).number;
-                if (number==cardNumber) {
+                String cardNumber = cardsInfo.get(i).number;
+                if (number.equals(cardNumber)) {
                     Operations.operationCheckCard(cardsInfo.get(i));
                     count++;
                 }
@@ -32,6 +32,7 @@ public class CashMachine {
 
 
     public void giveCash(BankCard card) throws IOException {
+        ConnectCardsInfo cardsInfo = new ConnectCardsInfo();
         int[] info = BanknoteInfo.readInfo();
         int[] giveBanknotes = new int [4];
         System.out.print("Banknotes: 5000 - ");
@@ -48,10 +49,13 @@ public class CashMachine {
         System.out.println("Your balance: " + card.balance);
         String writeToFile = (info[0]+sum) + " " + (info[1]+giveBanknotes[0]) + " " + (info[2]+giveBanknotes[1]) + " " + (info[3]+giveBanknotes[2]) + " " + (info[4]+giveBanknotes[3]);
         BanknoteInfo.writeInfo(writeToFile);
+        cardsInfo.changeCardsInfoDatabase(card.balance, card.number);
         Operations.transactionsMenu(card);
     }
+
     public void takeCash(BankCard card, int sum) throws IOException{
         if (card.balance>=sum) {
+            ConnectCardsInfo cardsInfo = new ConnectCardsInfo();
             int[] info = BanknoteInfo.readInfo();
             int[] result = BanknoteLogic.logic(sum, info);
             card.balance-=result[5];
@@ -59,6 +63,7 @@ public class CashMachine {
             System.out.println("Your balance: " + card.balance);
             String writeToFile = result[0] + " " + result[1] + " " + result[2] + " " + result[3] + " " + result[4];
             BanknoteInfo.writeInfo(writeToFile);
+            cardsInfo.changeCardsInfoDatabase(card.balance, card.number);
             Operations.transactionsMenu(card);
         } else {
             System.out.println("Error: your balance is too low");

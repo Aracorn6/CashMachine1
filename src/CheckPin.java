@@ -8,13 +8,16 @@ import java.util.ArrayList;
  */
 public class CheckPin {
     public void checkPin(BankCard card) throws IOException {
+        ConnectPinInfo connectPin = new ConnectPinInfo();
         System.out.println("Enter a PIN (press R for return card)");
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         String readPin = rd.readLine();
-        if (readPin.equals("R")) {
+        if (readPin.equalsIgnoreCase("R")) {
             Operations.returnCard();
             Operations.startMachine();
-        } else if (Integer.parseInt(readPin)==card.pin) {
+        }
+        boolean report = connectPin.pinInfoDatabase(card.number, readPin);
+        if (report==true) {
             System.out.println("PIN accepted.");
             Operations.transactionsMenu(card);
         } else {

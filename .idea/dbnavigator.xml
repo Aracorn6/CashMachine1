@@ -23,16 +23,19 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="0a7a65b4-87f8-4c29-896d-4d2d69c85e92">
+        <schema name="cards" object-types="column, constraint, function, index, sequence, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="66aeb362-e266-4758-a3ca-6a23dfe891fd">
+    <connection id="0a7a65b4-87f8-4c29-896d-4d2d69c85e92">
       <console name="Connection" type="STANDARD" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-list connection-id="66aeb362-e266-4758-a3ca-6a23dfe891fd" dataset="cards.cards" active-filter-id="EMPTY_FILTER" />
-    <filter-list connection-id="66aeb362-e266-4758-a3ca-6a23dfe891fd" dataset="cards.info" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="0a7a65b4-87f8-4c29-896d-4d2d69c85e92" dataset="cards.cards" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -60,7 +63,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="66aeb362-e266-4758-a3ca-6a23dfe891fd" active="true">
+      <connection id="0a7a65b4-87f8-4c29-896d-4d2d69c85e92" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -68,7 +71,7 @@
           <config-type value="BASIC" />
           <database-version value="9.6" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="$USER_HOME$/Загрузки/postgresql-9.4.1212.jre6.jar" />
+          <driver-library value="$PROJECT_DIR$/postgresql.jar" />
           <driver value="org.postgresql.Driver" />
           <url-type value="DATABASE" />
           <host value="localhost" />
