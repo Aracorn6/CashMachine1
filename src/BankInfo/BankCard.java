@@ -1,11 +1,13 @@
+package BankInfo;
+
 /**
  * Created by aracorn on 16.12.16.
  */
 public class BankCard {
-    int balance;
-    int month;
-    int year;
-    String number;
+    public int balance;
+    public int month;
+    public int year;
+    public String number;
 
     public BankCard(String firstName, String secondName, String number, int month, int year, int balance) {
         setMonth(month);
@@ -13,14 +15,20 @@ public class BankCard {
         setNumber(number);
         setBalance(balance);
     }
-    public void setMonth(int month) {
+
+    private void setMonth(int month) {
         this.month = month;
     }
-    public void setYear(int year) {
+
+    private void setYear(int year) {
         this.year = year;
     }
-    public void setNumber(String number) {
+
+    private void setNumber(String number) {
         this.number = number;
     }
-    public void setBalance(int balance) {this.balance = balance; }
+
+    private void setBalance(int balance) {
+        this.balance = balance;
+    }
 }

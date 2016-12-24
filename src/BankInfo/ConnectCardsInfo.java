@@ -1,3 +1,5 @@
+package BankInfo;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ public class ConnectCardsInfo {
         try {
             String url = "jdbc:postgresql://localhost:5432/bank";
             String login = "postgres";
-            String password = "SqrtBtaq359937";
+            String password = "1111";
             Connection con = DriverManager.getConnection(url, login, password);
             try {
                 Statement stmt = con.createStatement();
@@ -37,10 +39,10 @@ public class ConnectCardsInfo {
         try {
             String url = "jdbc:postgresql://localhost:5432/bank";
             String login = "postgres";
-            String password = "SqrtBtaq359937";
+            String password = "1111";
             Connection con = DriverManager.getConnection(url, login, password);
             try {
-                PreparedStatement ps = con.prepareStatement("UPDATE cards.cards SET balance =" + balance + " WHERE number ='" + number+"'");
+                PreparedStatement ps = con.prepareStatement("UPDATE cards.cards SET balance =" + balance + " WHERE number ='" + number + "'");
                 ps.executeUpdate();
             } catch (Exception ex) {
                 ex.printStackTrace();
