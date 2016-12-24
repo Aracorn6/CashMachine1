@@ -1,9 +1,7 @@
 package CashMachineOperations;
 
 import BankInfo.*;
-import CashMachineInfo.BanknoteInfo;
-import CashMachineInfo.BanknoteLogic;
-
+import CashMachineInfo.*;
 
 /**
  * Created by aracorn on 24.12.16.
