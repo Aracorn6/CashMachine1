@@ -22,7 +22,8 @@ public class CheckPin {
                 Operations.returnCard();
                 Operations.startMachine();
             }
-            boolean report = connectPin.pinInfoDatabase(card.number, readPin);
+            String encryptPin = Cryptography.encrypt(readPin);
+            boolean report = connectPin.pinInfoDatabase(card.number, encryptPin);
             if (report) {
                 System.out.println("PIN accepted.");
                 Operations.transactionsMenu(card);
