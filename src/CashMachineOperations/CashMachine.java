@@ -16,7 +16,7 @@ public class CashMachine {
     public void start() {
         try {
             ArrayList<BankCard> cardsInfo = connect.cardsInfoDatabase();
-            System.out.println("======================");
+            System.out.println("====================== ");
             System.out.println("Waiting.");
             System.out.println("INSERT CARD NUMBER");
             String number = rd.readLine();
